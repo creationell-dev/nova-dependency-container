@@ -428,7 +428,7 @@ class DependencyContainer extends Field
      * @param NovaRequest $request
      * @return array
      */
-    public function getCreationRules(NovaRequest $request): array|string
+    public function getCreationRules(NovaRequest $request): array
     {
         return $this->getSituationalRulesSet($request, 'getCreationRules');
     }
