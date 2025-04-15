@@ -426,16 +426,11 @@ class DependencyContainer extends Field
      * Get the creation rules for this field.
      *
      * @param NovaRequest $request
-     * @return array|string
+     * @return array
      */
     public function getCreationRules(NovaRequest $request): array|string
     {
-        $fieldsRules = $this->getSituationalRulesSet($request, 'getCreationRules');
-
-        return array_merge_recursive(
-            $this->getRules($request),
-            $fieldsRules
-        );
+        return $this->getSituationalRulesSet($request, 'getCreationRules');
     }
 
     /**
@@ -446,11 +441,7 @@ class DependencyContainer extends Field
      */
     public function getUpdateRules(NovaRequest $request): array
     {
-        $fieldsRules = $this->getSituationalRulesSet($request, 'getUpdateRules');
+        return $this->getSituationalRulesSet($request, 'getUpdateRules');
 
-        return array_merge_recursive(
-            $this->getRules($request),
-            $fieldsRules
-        );
     }
 }
