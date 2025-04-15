@@ -176,9 +176,9 @@ class DependencyContainer extends Field
      * Resolve dependency fields for display
      *
      * @param mixed $resource
-     * @param null  $attribute
+     * @param string|null $attribute
      */
-    public function resolveForDisplay($resource, $attribute = null): void
+    public function resolveForDisplay($resource, ?string $attribute = null): void
     {
         foreach ($this->meta['fields'] as $field) {
             $field->resolveForDisplay($resource);
@@ -241,13 +241,12 @@ class DependencyContainer extends Field
     }
 
     /**
-     * Resolve dependency fields
+     * Resolve the field's value for display.
      *
-     * @param mixed  $resource
-     * @param string $attribute
-     * @return array|mixed
+     * @param mixed $resource
+     * @param string|null $attribute
      */
-    public function resolve($resource, $attribute = null)
+    public function resolve($resource, ?string $attribute = null): void
     {
         foreach ($this->meta['fields'] as $field) {
             $field->resolve($resource, $attribute);
